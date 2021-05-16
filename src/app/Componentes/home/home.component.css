@@ -1,0 +1,101 @@
+.cabecera{
+    width: 100%;
+    height: 700px;
+    background: url("/assets/cabecera/karsten.jpg")no-repeat center;
+    background-size: cover;
+}
+
+.fondocabecera{
+    width: 100%;
+}
+
+.options{
+    padding: 5px;
+    height: 400px;
+}
+
+.options-title{
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    overflow: hidden;
+}
+
+.options-image-equipo{
+    height: 100%;
+    background: url("/assets/gimnasio/equipo-small.jpg")no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    position:relative;
+    transition: transform .5s ease;
+}
+
+.options:hover .options-image-equipo{ 
+    transform: scale(1.2); 
+    padding: 5px;
+}
+.options-image-galeria{
+    height: 100%;
+    background: url("/assets/gimnasio/galeria-small.jpg")no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    position:relative;
+    transition: transform .5s ease;
+}
+
+.options:hover .options-image-galeria{ 
+    transform: scale(1.2); 
+    padding: 5px;
+}
+
+.options-image-horarios{
+    height: 100%;
+    background: url("/assets/gimnasio/horarios-small.jpg")no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    position:relative;
+    transition: transform .5s ease;
+}
+
+.options:hover .options-image-horarios{ 
+    transform: scale(1.2); 
+    padding: 5px;
+}
+.options-image-comentarios{
+    height: 100%;
+    background: url("/assets/gimnasio/comentarios-small.jpg")no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    position:relative;
+    transition: transform .5s ease;
+}
+
+.options:hover .options-image-comentarios{ 
+    transform: scale(1.2); 
+    padding: 5px;
+}
+
+.title{
+    font-family: 'Monoton';
+    font-size: 2.5em;
+    letter-spacing: 4px;
+}
+
+.nolimits{
+    margin-top: 20px;
+}
+
+.gym-container{
+    height: 400px;
+}
+
+.gym-container:before{
+    height: 100%;
+    background-color: #33414f;
+    width: 50%;
+}
+
+.gym-container-image{
+    height: 100%;
+    background: url("/assets/gimnasio/gimnasio.jpg")no-repeat center;
+    background-size: cover;
+}

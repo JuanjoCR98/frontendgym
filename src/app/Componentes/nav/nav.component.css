@@ -1,0 +1,10 @@
+.logo{
+    width: 150px;
+    height: 150px;
+    background: url("/assets/logo/logowhite.png")no-repeat center;
+    background-size: cover;
+}
+
+.navbar{
+    background-color: black;
+}
