@@ -9,6 +9,7 @@ import { CabeceraComponent } from './Componentes/cabecera/cabecera.component';
 import { NolimitsComponent } from './Componentes/nolimits/nolimits.component';
 import { OptionsnolimitsComponent } from './Componentes/optionsnolimits/optionsnolimits.component';
 import { FooterComponent } from './Componentes/footer/footer.component';
+import { PerfilComponent } from './Componentes/auth/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './Componentes/footer/footer.component';
     CabeceraComponent,
     NolimitsComponent,
     OptionsnolimitsComponent,
-    FooterComponent
+    FooterComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
