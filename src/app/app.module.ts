@@ -10,6 +10,7 @@ import { NolimitsComponent } from './Componentes/nolimits/nolimits.component';
 import { OptionsnolimitsComponent } from './Componentes/optionsnolimits/optionsnolimits.component';
 import { FooterComponent } from './Componentes/footer/footer.component';
 import { PerfilComponent } from './Componentes/auth/perfil/perfil.component';
+import { RutinasComponent } from './Componentes/rutinas/rutinas.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PerfilComponent } from './Componentes/auth/perfil/perfil.component';
     NolimitsComponent,
     OptionsnolimitsComponent,
     FooterComponent,
-    PerfilComponent
+    PerfilComponent,
+    RutinasComponent
   ],
   imports: [
     BrowserModule,
