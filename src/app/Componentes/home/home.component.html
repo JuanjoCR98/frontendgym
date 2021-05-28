@@ -1,4 +1,114 @@
-<div class="cabecera">
+<app-cabecera></app-cabecera>
+
+<div class="no-limits">
+    <h2 class="titulo">NO LIMITS</h2>
+    <div class="row">
+        <div class = "col-12 col-lg-6">
+            <div class="contenedor-img-nolimits">
+                <img src="/assets/gimnasio/gimnasio.jpg" alt="">
+            </div>   
+        </div>
+        <div class = "col-12 col-lg-6">
+            <div class="contenedor-texto-nolimits">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa blanditiis dolorem atque omnis velit? Consequuntur porro harum dolores, corporis ipsa, et iure vel sed accusamus, neque officiis nulla temporibus a cum est maxime fugit? Reiciendis velit necessitatibus alias fugiat dicta neque quibusdam libero! Labore cupiditate commodi a quisquam. Impedit, provident.</p>
+            </div>     
+        </div>
+    </div>
+</div>
+
+<div class="entrenadores">
+  <div class="container">
+    <div class="row">
+		<div class="col-lg-8 mx-auto">
+			<h2 class="titulo">ENTRENADORES</h2>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for carousel items -->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="img-box"><img src="/examples/images/clients/1.jpg" alt=""></div>
+                        <p class="entrenador"><b>Paula Wilson</b>,21 años</p>
+						<div class="row redes-sociales">
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/facebook.png" alt="">
+                            </div>
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/instagram.png" alt="">
+                            </div>
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/twitter.png" alt="">
+                            </div>
+                        </div>
+					</div>
+					<div class="carousel-item">
+						<div class="img-box"><img src="/examples/images/clients/2.jpg" alt=""></div>
+                        <p class="entrenador"><b>Antonio Moreno</b>, Web Developer</p>
+                        <div class="row redes-sociales">
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/facebook.png" alt="">
+                            </div>
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/instagram.png" alt="">
+                            </div>
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/twitter.png" alt="">
+                            </div>
+                        </div>
+					</div>
+					<div class="carousel-item">
+						<div class="img-box"><img src="/examples/images/clients/3.jpg" alt=""></div>
+                        <p class="entrenador"><b>Michael Holz</b>, Seo Analyst</p>
+                        <div class="row redes-sociales">
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/facebook.png" alt="">
+                            </div>
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/instagram.png" alt="">
+                            </div>
+                            <div class="col-4 contenedor-redes">
+                                <img src="/assets/entrenador/twitter.png" alt="">
+                            </div>
+                        </div>
+					</div>
+				</div>
+				<!-- Carousel controls -->
+				<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+					<i class="fa fa-angle-left"></i>
+				</a>
+				<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+<app-galeria></app-galeria>
+
+<div class="sobre-mi">
+    <h2 class="titulo">SOBRE MI - JUANJO CORTÉS RAMIREZ</h2>
+    <div class="row">
+        <div class="col-12 contenedor-img-sobremi">
+            <img src="/assets/juanjo/juanjo.jpg" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 contenedor-texto-sobremi">
+            <div class="container">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet magni nemo voluptatem minima facere laborum nostrum doloremque natus neque, hic, soluta possimus repudiandae laboriosam voluptates a, quaerat sequi atque id!
+                    Earum perspiciatis laboriosam voluptates ipsam a! Rem repudiandae distinctio explicabo quis alias eaque inventore, sequi officiis dolores, omnis porro cum ut praesentium iure hic voluptates fuga iusto earum illo deserunt!
+                    Soluta, itaque. Consequuntur sit rerum commodi id tempore, placeat laboriosam odio? Quis aspernatur nemo, sint similique fugiat at, praesentium nisi dolor ea eius rerum hic sed doloremque ipsum, soluta expedita?
+                    Porro exercitationem molestiae nulla dolores sunt quasi ullam optio recusandae eos quia quos dicta fugit minus sint voluptatem at, ex eveniet perspiciatis esse doloribus officia hic repellat assumenda asperiores. Doloribus?
+                    Eligendi asperiores, corporis vel dolore debitis, repellat ratione repudiandae repellendus harum quo velit. Dicta ducimus quam ratione modi eius porro labore, nisi tenetur sit illum placeat voluptatum nihil aliquid! Nostrum?</p>
+            </div>     
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--<div class="cabecera">
     
 </div>
 <div class="container">
@@ -19,7 +129,7 @@
                     Iste earum nesciunt eligendi quidem debitis voluptas, molestias rerum nulla! Nostrum facere est, provident alias, voluptatum, laboriosam rem dolor eveniet sunt non in nulla animi quisquam nesciunt voluptatem corporis exercitationem.
                   </div>
                   <div class="col-12">
-                    <a href="#" class="btn btn-info">Mas informacion</a>
+                    <a class="btn btn-info" routerLink="/perfil">Mas informacion</a>
                   </div>
                 </div>
             </div>
@@ -50,8 +160,9 @@
         </div>
     </div>
 </div>
-<!--<div class="cabecera">
+<div class="cabecera">
     <app-cabecera></app-cabecera>
     <app-nolimits></app-nolimits>
     <app-optionsnolimits></app-optionsnolimits>
-</div>-->
+</div>
+-->

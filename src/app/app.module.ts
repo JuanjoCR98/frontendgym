@@ -11,6 +11,9 @@ import { OptionsnolimitsComponent } from './Componentes/optionsnolimits/optionsn
 import { FooterComponent } from './Componentes/footer/footer.component';
 import { PerfilComponent } from './Componentes/auth/perfil/perfil.component';
 import { RutinasComponent } from './Componentes/rutinas/rutinas.component';
+import { SidebarsocioComponent } from './Componentes/sidebarsocio/sidebarsocio.component';
+import { EjerciciosComponent } from './Componentes/ejercicios/ejercicios.component';
+import { GaleriaComponent } from './Componentes/galeria/galeria.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { RutinasComponent } from './Componentes/rutinas/rutinas.component';
     OptionsnolimitsComponent,
     FooterComponent,
     PerfilComponent,
-    RutinasComponent
+    RutinasComponent,
+    SidebarsocioComponent,
+    EjerciciosComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

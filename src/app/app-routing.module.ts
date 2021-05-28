@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PerfilComponent } from './Componentes/auth/perfil/perfil.component';
+import { EjerciciosComponent } from './Componentes/ejercicios/ejercicios.component';
+import { HomeComponent } from './Componentes/home/home.component';
 import { RutinasComponent } from './Componentes/rutinas/rutinas.component';
 
 
 const routes: Routes = [
-  {path: "", component:PerfilComponent},
-  {path: "**", component:PerfilComponent},
+  {path: "", component: HomeComponent},
+  {path: "perfil", component:PerfilComponent},
   {path: "rutinas", component:RutinasComponent},
+  {path: "ejercicios", component:EjerciciosComponent},
+  {path: "**", component:HomeComponent},
 ];
 
 @NgModule({

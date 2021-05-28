@@ -1,0 +1,16 @@
+.galeria{
+    overflow: hidden;
+}
+
+.assets-carousel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.assets-carousel img{
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+
