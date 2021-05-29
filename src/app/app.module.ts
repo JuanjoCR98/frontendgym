@@ -32,7 +32,7 @@ import { GaleriaComponent } from './Componentes/galeria/galeria.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

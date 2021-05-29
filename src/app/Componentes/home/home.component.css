@@ -15,7 +15,6 @@
 .contenedor-img-nolimits{
     width: auto;
     height: 400px;
-    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,6 +27,26 @@
    object-fit: cover;
 }
 
+.no-limits-option{
+    padding:0;
+}
+
+.contenedor-texto-nolimits{
+    height:400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: justify;
+    padding: 20px;
+    background-color: rgb(100, 42, 115);
+}
+
+.contenedor-texto-nolimits p{
+    color:white;
+    font-weight: 300;
+    font-size: 1.2em;
+}
 
 /* SOBRE MI */
 
@@ -128,7 +147,10 @@
     padding-top: 10px;
 }
 
-/* GALERIA */
+.mapa{
+    width:100%;
+    height: 400px;
+}
 
 
 
