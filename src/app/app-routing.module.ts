@@ -8,9 +8,9 @@ import { RutinasComponent } from './Componentes/rutinas/rutinas.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
+  {path: "ejercicios", component: EjerciciosComponent},
   {path: "perfil", component:PerfilComponent},
   {path: "rutinas", component:RutinasComponent},
-  {path: "ejercicios", component:EjerciciosComponent},
   {path: "**", component:HomeComponent},
 ];
 

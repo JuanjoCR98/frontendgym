@@ -14,6 +14,10 @@ import { RutinasComponent } from './Componentes/rutinas/rutinas.component';
 import { SidebarsocioComponent } from './Componentes/sidebarsocio/sidebarsocio.component';
 import { EjerciciosComponent } from './Componentes/ejercicios/ejercicios.component';
 import { GaleriaComponent } from './Componentes/galeria/galeria.component';
+import { CabeceraEjerciciosComponent } from './Componentes/cabecera-ejercicios/cabecera-ejercicios.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CabeceraRutinasComponent } from './Componentes/cabecera-rutinas/cabecera-rutinas.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,11 +32,16 @@ import { GaleriaComponent } from './Componentes/galeria/galeria.component';
     RutinasComponent,
     SidebarsocioComponent,
     EjerciciosComponent,
-    GaleriaComponent
+    GaleriaComponent,
+    CabeceraEjerciciosComponent,
+    CabeceraRutinasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

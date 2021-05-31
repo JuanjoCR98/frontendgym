@@ -1,0 +1,48 @@
+header {
+    width: 100%;
+    height: 300px;
+    background: hsla(110, 95%, 14%);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(106, 94%, 37%, 0.596), hsla(110, 95%, 14%, 0.589)),url("/assets/cabecera/karsten.jpg");
+    background: linear-gradient(to right,hsla(106, 94%, 37%, 0.596), hsla(110, 95%, 14%, 0.589)),url("/assets/cabecera/karsten.jpg"); 
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+nav{
+    text-align: right;
+    padding: 30px 50px 0 0;
+
+}
+
+nav > a{
+    color:white;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav > a:hover{
+    text-decoration: underline;
+}
+
+header .header{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    text-align:center;
+}
+
+header .header .titulo{
+    color:white;
+    font-size:4em;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.wave{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+}

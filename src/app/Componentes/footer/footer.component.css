@@ -1,6 +1,60 @@
 .footer{
-    background-color: black;
-    height: 100px;
+    background-color: rgb(41, 3, 71);
+    overflow: hidden;
+}
+
+.red{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    transition: transform .5s ease;
+}
+
+.red p{
+    color:white;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.red:hover .red-twitter{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.red:hover .red-instagram{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.red:hover .red-facebook{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.red:hover .red-youtube{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.linea{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linea hr{
+    background-color:white;
+    width: 10%;
+}
+
+.copy{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .titulo-footer{
