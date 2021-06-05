@@ -5,6 +5,8 @@ import { EjerciciosrutinasService } from 'src/app/Servicios/ejerciciosrutinas.se
 import { RutinasService } from 'src/app/Servicios/rutinas.service';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
+import { UsuariosService } from 'src/app/Servicios/usuarios.service';
+import { Usuario } from 'src/app/Clases/usuario';
 
 @Component({
   selector: 'app-rutinas',
@@ -14,16 +16,29 @@ import html2canvas from 'html2canvas';
 export class RutinasComponent implements OnInit {
 
   rutinas: Rutina[] = []
+  usuario: Usuario = {}
   ejerciciosRutina: Ejerciciosrutina[] = []
 
-  constructor(private servicioRutina:RutinasService,private ejercicioRutina:EjerciciosrutinasService) { }
+  constructor(private servicioRutina:RutinasService,private ejercicioRutina:EjerciciosrutinasService,private servicioUsuario:UsuariosService) { }
 
   ngOnInit(): void {
-    this.obtenerRutinas();
+    this.obtenerUsuario()
   }
 
-  obtenerRutinas(){
-    this.servicioRutina.rutinas().subscribe(
+  obtenerUsuario(): void 
+  {
+    this.servicioUsuario.obtenerUser().subscribe(
+      respuesta => {
+        this.usuario = respuesta
+        this.obtenerRutinas(this.usuario.id)
+      },
+      error => console.log(error)
+    )
+  }
+
+  obtenerRutinas(id)
+  {
+    this.servicioRutina.rutinasUsuario(id).subscribe(
       respuesta => {
         this.rutinas = respuesta
       },
@@ -31,8 +46,8 @@ export class RutinasComponent implements OnInit {
     )
   }
 
-  ejerciciosRutinas($id){
-    this.ejercicioRutina.ejerciciosRutina($id).subscribe(
+  ejerciciosRutinas(id){
+    this.ejercicioRutina.ejerciciosRutina(id).subscribe(
       respuesta => {
         this.ejerciciosRutina = respuesta
         console.log(respuesta)

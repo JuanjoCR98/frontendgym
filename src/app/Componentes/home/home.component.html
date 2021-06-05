@@ -17,66 +17,31 @@
 </div>
 
 <div class="entrenadores">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-		<div class="col-lg-8 mx-auto">
-			<h2 class="titulo">ENTRENADORES</h2>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<!-- Wrapper for carousel items -->
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<div class="img-box"><img src="/examples/images/clients/1.jpg" alt=""></div>
-                        <p class="entrenador"><b>Paula Wilson</b>,21 años</p>
-						<div class="row redes-sociales">
-                            <div class="col-4 contenedor-redes">
+		<div class="col">
+            <h2 class="titulo">ENTRENADORES</h2>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 contenedor-entrenador" *ngFor="let trainer of entrenadores">
+                    <div class="img-box"><img src="/examples/images/clients/1.jpg" alt=""></div>
+                    <p class="entrenador"><b>{{trainer.nombre}} {{trainer.apellidos}}</b>{{trainer.fecha_nac}}</p>
+                    <div class="row redes-sociales">
+                        <div class="col-4 contenedor-redes">
+                            <a href="https://www.facebook.com/{{trainer.facebook}}">
                                 <img src="/assets/entrenador/facebook.png" alt="">
-                            </div>
-                            <div class="col-4 contenedor-redes">
-                                <img src="/assets/entrenador/instagram.png" alt="">
-                            </div>
-                            <div class="col-4 contenedor-redes">
-                                <img src="/assets/entrenador/twitter.png" alt="">
-                            </div>
+                            </a> 
                         </div>
-					</div>
-					<div class="carousel-item">
-						<div class="img-box"><img src="/examples/images/clients/2.jpg" alt=""></div>
-                        <p class="entrenador"><b>Antonio Moreno</b>, Web Developer</p>
-                        <div class="row redes-sociales">
-                            <div class="col-4 contenedor-redes">
-                                <img src="/assets/entrenador/facebook.png" alt="">
-                            </div>
-                            <div class="col-4 contenedor-redes">
+                        <div class="col-4 contenedor-redes">
+                            <a href="https://www.instagram.com/{{trainer.instagram}}">
                                 <img src="/assets/entrenador/instagram.png" alt="">
-                            </div>
-                            <div class="col-4 contenedor-redes">
-                                <img src="/assets/entrenador/twitter.png" alt="">
-                            </div>
+                            </a>  
                         </div>
-					</div>
-					<div class="carousel-item">
-						<div class="img-box"><img src="/examples/images/clients/3.jpg" alt=""></div>
-                        <p class="entrenador"><b>Michael Holz</b>, Seo Analyst</p>
-                        <div class="row redes-sociales">
-                            <div class="col-4 contenedor-redes">
-                                <img src="/assets/entrenador/facebook.png" alt="">
-                            </div>
-                            <div class="col-4 contenedor-redes">
-                                <img src="/assets/entrenador/instagram.png" alt="">
-                            </div>
-                            <div class="col-4 contenedor-redes">
+                        <div class="col-4 contenedor-redes">
+                            <a href="https://www.twitter.com/{{trainer.twitter}}">
                                 <img src="/assets/entrenador/twitter.png" alt="">
-                            </div>
+                            </a> 
                         </div>
-					</div>
-				</div>
-				<!-- Carousel controls -->
-				<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-					<i class="fa fa-angle-left"></i>
-				</a>
-				<a class="carousel-control-next" href="#myCarousel" data-slide="next">
-					<i class="fa fa-angle-right"></i>
-				</a>
+                </div>
 			</div>
 		</div>
 	</div>
@@ -101,6 +66,9 @@
                     <br>Os dejo mi curriculum por aquí por si quereis poneros en contacto conmigo.
                     Un saludo!
                 </p>
+                <div class="contenedor-btn-cv">
+                    <button type="button">Descargar CV</button>
+                </div>
             </div>     
         </div>
     </div>

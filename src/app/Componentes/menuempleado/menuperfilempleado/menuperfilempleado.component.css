@@ -1,0 +1,131 @@
+.menu{
+    height: 300px;
+    overflow: hidden;
+}
+  
+.rowmenu{
+    height: 100%;
+}
+
+.perfil{
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    position:relative;
+}
+  
+.empleado{
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    position:relative;
+    cursor: pointer;
+}
+  
+.socio{
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    position:relative;
+    cursor: pointer;
+}
+  
+.perfil-image{
+    z-index: -1;
+    position:relative;
+    height: 100%
+}
+
+.perfil-image img{
+    
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+  
+.contenedor-perfil-title{
+    height: 100%;
+    width:100%;
+    align-items: center;
+    display: flex;
+    position: absolute;
+}
+  
+.perfil-title{
+    background: rgba(133, 128, 128,0.5); 
+    backdrop-filter: blur(15px);
+    color: white;
+    width:100vh;
+    padding:10px;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+}
+  
+.empleado-image{
+    background: url('/assets/perfil/rutinas1.jpg')no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    position:relative;
+    height: 100vh;
+    transition: transform .5s ease;
+}
+  
+.empleado:hover .empleado-image{
+    transform: scale(1.2);
+    padding: 0;
+    cursor: pointer;
+}
+  
+.contenedor-empleado-title{
+    height: 100%;
+    width:100%;
+    align-items: center;
+    display: flex;
+    position: absolute;
+}
+  
+.empleado-title{
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    color: white;
+    width:100vh;
+    padding:10px;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+}
+  
+.socio-image{
+    background: url('/assets/perfil/perfil1.jpg')no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    position: relative;
+    height: 100vh;
+    transition: transform .5s ease;
+}
+  
+.socio:hover .socio-image{
+    transform: scale(1.2);
+    padding: 0;
+    cursor:pointer;
+}
+  
+.contenedor-socio-title{
+    height: 100%;
+    width:100%;
+    align-items: center;
+    display: flex;
+    position: absolute;
+}
+  
+.socio-title{
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    color: white;
+    width:100vh;
+    padding:10px;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+}

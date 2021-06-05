@@ -1,0 +1,15 @@
+.perfil-empleado{
+    overflow: hidden;
+}
+
+
+.container-fluid{
+    background-color: purple;
+    width: 100%;
+    align-items: center;
+}
+
+.container{
+    background-color: white;
+    padding: 10px;
+}

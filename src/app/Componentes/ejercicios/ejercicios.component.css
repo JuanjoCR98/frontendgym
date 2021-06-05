@@ -1,5 +1,9 @@
-/*EJERCICIOS*/
 
+/*EJERCICIOS*/
+.ejercicios{
+    background: rgb(44, 48, 52);
+    position:sticky;
+}
 .ejercicios .cabecera-ejercicio{
     width: 100%;
     background: #000046;  /* fallback for old browsers */

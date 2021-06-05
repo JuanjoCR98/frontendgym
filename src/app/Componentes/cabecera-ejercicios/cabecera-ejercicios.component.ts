@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 
 @Component({
   selector: 'app-cabecera-ejercicios',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraEjerciciosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicioUsuario:UsuariosService,private irHacia:Router) { }
 
   ngOnInit(): void {
   }
 
+  doLogout(){
+    this.servicioUsuario.logOut()
+    this.irHacia.navigate([""])
+  }
 }

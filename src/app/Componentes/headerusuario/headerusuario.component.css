@@ -1,0 +1,38 @@
+/*CABECERA*/
+header{
+    background: rgb(33,37,41);  /* fallback for old browsers */
+}
+.logo-nolimits{
+    margin: 5px;
+    height: 120px;
+    width: 120px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo-nolimits img{
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.logo-logout{
+    display: flex;
+    align-items: center;
+    justify-content:right;
+    height: 120px;
+    padding: 15px;
+}
+
+.logo-logout:hover{
+    cursor: pointer;
+}
+
+i{
+    font-size:25px;
+    color:rgba(255, 255, 255, 0.5)
+}
