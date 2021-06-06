@@ -14,6 +14,7 @@ export class EjerciciosComponent implements OnInit {
   tipoEjercicios: Tipoejercicio[] = []
   ejer: Ejercicio = new Ejercicio
   mostrarModal: boolean = false
+  ejertmp: Ejercicio = new Ejercicio
   
   constructor(private servicioTipoEjercicio:TipoejerciciosService,private servicioEjercicio:EjerciciosService) { }
 
@@ -32,6 +33,11 @@ export class EjerciciosComponent implements OnInit {
   )
  }
 
+ recogerEjercicio(ejer)
+ {
+   console.log(ejer)
+   this.ejertmp = ejer
+ }
 
   obtenerTipoEjercicios(){
     this.servicioTipoEjercicio.tipoEjercicios().subscribe(

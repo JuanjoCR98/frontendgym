@@ -1,7 +1,10 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Ejercicio } from 'src/app/Clases/ejercicio';
 import { Rutina } from 'src/app/Clases/rutina';
 import { Usuario } from 'src/app/Clases/usuario';
+import { EjerciciosService } from 'src/app/Servicios/ejercicios.service';
 import { RutinasService } from 'src/app/Servicios/rutinas.service';
 import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 
@@ -12,26 +15,30 @@ import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 })
 export class RutinaEmpleadoComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private rutinaService:RutinasService,private socioService:UsuariosService) { }
+  constructor(private fb: FormBuilder,private rutinaService:RutinasService,private socioService:UsuariosService,private ejercicioService:EjerciciosService) { }
 
   rutinas: Rutina[] = []
+  ejercicios: Ejercicio[] = []
   selectedOption: any
-  rutinatmp: Rutina = {}
+  rutinatmp: Rutina = new Rutina()
   socios: Usuario[] = []
   id_usuario: any
 
   formInsertarRutina = this.fb.group({
     nombre: ["",[Validators.required]],
-    usuario:[""]
+    usuario:[""],
+    ejerciciosrutina: this.fb.array([])
   })
 
   formEditarRutina = this.fb.group({
-    nombre: [""]
+    nombre: [""],
+    usuario:[""]
   })
 
   ngOnInit(): void {
     this.obtenerSocios()
     this.obtenerRutinas()
+    this.obtenerEjercicios()
   }
 
   callType(id){
@@ -62,11 +69,22 @@ export class RutinaEmpleadoComponent implements OnInit {
     )
   }
 
+  obtenerEjercicios(): void 
+  {
+    this.ejercicioService.verEjercicios().subscribe(
+      respuesta => {
+        this.ejercicios = respuesta
+        console.log(this.rutinas)
+      },
+      error => console.log(error)
+    )
+  }
+
   insertarRutina()
   {
     this.rutinaService.insertarRutina(this.formInsertarRutina.value).subscribe(
       respuesta => {
-        this.formInsertarRutina.reset()
+        this.vaciarFormulario()
         this.obtenerRutinas()
         console.log(respuesta)
       },
@@ -83,7 +101,6 @@ export class RutinaEmpleadoComponent implements OnInit {
   {
     this.rutinaService.editarRutina(this.rutinatmp.id,this.rutinatmp).subscribe(
       respuesta => {
-        this.formEditarRutina.reset()
         this.obtenerRutinas()
         console.log(respuesta)
       },
@@ -102,4 +119,19 @@ export class RutinaEmpleadoComponent implements OnInit {
     )
   }
 
+  vaciarFormulario()
+  {
+      this.formInsertarRutina.controls["nombre"].setValue("")
+  }
+
+  onChange(id:number, isChecked: boolean) {
+    const ejercicioFormArray = <FormArray>this.formInsertarRutina.controls.ejerciciosrutina;
+  
+    if(isChecked) {
+      ejercicioFormArray.push(new FormControl(identifierModuleUrl));
+    } else {
+      let index = ejercicioFormArray.controls.findIndex(x => x.value == id)
+      ejercicioFormArray.removeAt(index);
+    }
+  }
 }

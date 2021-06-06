@@ -1,5 +1,8 @@
 
 /*EJERCICIOS*/
+.menu-ejercicios{
+    overflow: hidden;
+}
 .ejercicios{
     background: rgb(44, 48, 52);
     position:sticky;
@@ -21,7 +24,7 @@
 }
 
 .container-ejercicio{
-    padding-top: 8px;
+    padding-top:8px;
     overflow: hidden;
 }
 
@@ -58,6 +61,7 @@
     color:white;
     font-size: 1.2em;
     font-weight: 300;
+    padding: 10px;
 }
 
 .contenedor-ejercicios .img-ejercicio{
@@ -76,4 +80,33 @@
     width: 100%;
     height: 100%;
     object-fit: cover;   
+}
+
+/*modal*/
+
+.modal-dialog{
+    overflow: hidden;
+}
+
+
+.modal-body{
+    overflow: hidden;
+}
+
+.modal-img{
+    overflow:hidden;
+}
+
+
+.modal-ejercicio-img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.ejecucion-ejercicio{
+    padding:20px 10px;
+}
+
+.ejecucion-ejercicio p{
+    text-align: justify;
 }

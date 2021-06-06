@@ -1,0 +1,9 @@
+.empleado-empleado{
+    min-height:100vh; 
+    overflow: hidden;
+}
+
+.empleado{
+    background: rgb(44, 48, 52);
+    height: 100%;
+}

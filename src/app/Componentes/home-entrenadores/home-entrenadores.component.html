@@ -1,0 +1,37 @@
+<div class="entrenadores">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h2 class="titulo">ENTRENADORES</h2>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 contenedor-entrenador" *ngFor="let trainer of entrenadores">
+                        <div class="img-box">
+                            <img *ngIf= "trainer.foto != '';else noimg" src="/examples/images/clients/1.jpg">
+                            <ng-template #noimg>
+                                <img src="/assets/noimg.jpg">
+                            </ng-template>
+                        </div>
+                        <p class="entrenador"><b>{{trainer.nombre}} {{trainer.apellidos}}</b>{{trainer.fecha_nac}}</p>
+                        <div class="row redes-sociales">
+                            <div class="col-4 contenedor-redes">
+                                <a href="https://www.facebook.com/{{trainer.facebook}}" [disabled]="trainer.facebook==''">
+                                    <img src="/assets/entrenador/facebook.png" alt="">
+                                </a> 
+                             </div>
+                            <div class="col-4 contenedor-redes">
+                                <a href="https://www.instagram.com/{{trainer.instagram}}" [disabled]="trainer.facebook==''">
+                                    <img src="/assets/entrenador/instagram.png" alt="">
+                                </a>  
+                            </div>
+                            <div class="col-4 contenedor-redes">
+                                <a href="https://www.twitter.com/{{trainer.twitter}}" [disabled]="trainer.facebook==''">
+                                  <img src="/assets/entrenador/twitter.png" alt="">
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

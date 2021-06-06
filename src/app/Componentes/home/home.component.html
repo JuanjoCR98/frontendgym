@@ -10,43 +10,17 @@
         </div>
         <div class = "col-12 col-md-6 no-limits-option">
             <div class="contenedor-texto-nolimits">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa blanditiis dolorem atque omnis velit? Consequuntur porro harum dolores, corporis ipsa, et iure vel sed accusamus, neque officiis nulla temporibus a cum est maxime fugit? Reiciendis velit necessitatibus alias fugiat dicta neque quibusdam libero! Labore cupiditate commodi a quisquam. Impedit, provident.</p>
+                <p>NO LIMITS está reconocido como uno de los mejores centros de Castilla La Mancha. Una vez entras pasarás a formar parte
+                    de una gran familia, donde podrás cumplir tus metas con sacrificio y con la ayuda de nuestros entrenadores personales.
+                    Una vez seas socio, gozarás de un amplio repertorio de ejercicios que puedes realizar en nuestro centro, con ayuda detallada y 
+                    rutinas que crearán los entrenadores a vuestra medida.
+                </p>
             </div>     
         </div>
     </div>
 </div>
 
-<div class="entrenadores">
-  <div class="container-fluid">
-    <div class="row">
-		<div class="col">
-            <h2 class="titulo">ENTRENADORES</h2>
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 contenedor-entrenador" *ngFor="let trainer of entrenadores">
-                    <div class="img-box"><img src="/examples/images/clients/1.jpg" alt=""></div>
-                    <p class="entrenador"><b>{{trainer.nombre}} {{trainer.apellidos}}</b>{{trainer.fecha_nac}}</p>
-                    <div class="row redes-sociales">
-                        <div class="col-4 contenedor-redes">
-                            <a href="https://www.facebook.com/{{trainer.facebook}}">
-                                <img src="/assets/entrenador/facebook.png" alt="">
-                            </a> 
-                        </div>
-                        <div class="col-4 contenedor-redes">
-                            <a href="https://www.instagram.com/{{trainer.instagram}}">
-                                <img src="/assets/entrenador/instagram.png" alt="">
-                            </a>  
-                        </div>
-                        <div class="col-4 contenedor-redes">
-                            <a href="https://www.twitter.com/{{trainer.twitter}}">
-                                <img src="/assets/entrenador/twitter.png" alt="">
-                            </a> 
-                        </div>
-                </div>
-			</div>
-		</div>
-	</div>
-  </div>
-</div>
+<app-home-entrenadores></app-home-entrenadores>
 
 <app-galeria></app-galeria>
 
@@ -78,30 +52,3 @@
 </div>
 
 <app-footer></app-footer>
-
-<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">LOGIN</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form [formGroup]="formLogin" (submit)="login()">
-                <div class="form-group">
-                  <input type="text" class="form-control" formControlName="email" placeholder="Email...">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" formControlName="password" placeholder="Contraseña...">
-                </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button></div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-        </div>
-      </div>
-    </div>
-</div>

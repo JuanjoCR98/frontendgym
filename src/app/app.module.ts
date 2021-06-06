@@ -30,6 +30,8 @@ import { MenuempleadoempleadoComponent } from './Componentes/menuempleado/menuem
 import { SocioEmpleadoComponent } from './Componentes/empleado/socio-empleado/socio-empleado.component';
 import { EmpleadoEmpleadoComponent } from './Componentes/empleado/empleado-empleado/empleado-empleado.component';
 import { RutinaEmpleadoComponent } from './Componentes/empleado/rutina-empleado/rutina-empleado.component';
+import { HomeEntrenadoresComponent } from './Componentes/home-entrenadores/home-entrenadores.component';
+import { LoginComponent } from './Componentes/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { RutinaEmpleadoComponent } from './Componentes/empleado/rutina-empleado/
     MenuempleadoempleadoComponent,
     SocioEmpleadoComponent,
     EmpleadoEmpleadoComponent,
-    RutinaEmpleadoComponent
+    RutinaEmpleadoComponent,
+    HomeEntrenadoresComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

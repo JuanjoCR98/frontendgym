@@ -4,4 +4,5 @@ export class Ejercicio {
     ejecucion?: string
     foto?: string
     tipo_id?: number
+    tipo?: string
 }

@@ -1,1 +1,33 @@
-<p>menuempleadoempleado works!</p>
+<div class="menu">
+    <div class="row rowmenu">
+      <div class="col-3 perfil" [routerLink]="['/perfilempleado']">
+        <div class="contenedor-perfil-title">
+          <div class="perfil-title">PERFIL</div>
+        </div>
+        <div class="perfil-image">
+            <img src="/assets/perfil/ejercicio1.jpg" alt="">
+        </div>
+      </div>
+      <div class="col-3 empleado" [routerLink]="['/empleadoempleado']">
+        <div class="contenedor-empleado-title">
+          <div class="empleado-title">
+            EMPLEADO
+          </div>
+        </div>
+        <div class="empleado-image"></div>
+      </div>
+      <div class="col-3 socio" [routerLink]="['/socioempleado']">
+        <div class="contenedor-socio-title">
+          <div class="socio-title">SOCIO</div>
+        </div>
+        <div class="socio-image"></div>
+      </div>
+      <div class="col-3 rutina" [routerLink]="['/rutinaempleado']">
+        <div class="contenedor-rutina-title">
+          <div class="rutina-title">RUTINA</div>
+        </div>
+        <div class="rutina-image"></div>
+      </div>
+    </div>
+</div>
+

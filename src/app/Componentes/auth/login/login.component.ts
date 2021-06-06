@@ -1,43 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as L from 'leaflet';
-import { Empleado } from 'src/app/Clases/empleado';
 import { Usuario } from 'src/app/Clases/usuario';
-import { EmpleadosService } from 'src/app/Servicios/empleados.service';
 import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class HomeComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private irHacia:Router, private servicioEmpleado:EmpleadosService,private servicioUsuario:UsuariosService) { }
-  
-  usuario: Usuario = {}
+  constructor(private servicioUsuario:UsuariosService,private fb: FormBuilder,private irHacia:Router,) { }
 
   mensaje: any
+  usuario: Usuario = {}
 
   formLogin = this.fb.group({
     email: ["",[Validators.required,Validators.email]],
     password: ["",[Validators.required]],
   })
 
-  mymap: any;
+  ngOnInit(): void {
 
-  ngOnInit(): void 
-  {
-    var map = L.map('mapid').setView([39.391645827098316, -3.221972775300358], 16);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    
-    L.marker([39.391645827098316, -3.221972775300358]).addTo(map)
-        .bindPopup('NO LIMITS')
-        .openPopup();
+    if(this.servicioUsuario.isLogged()){
+      this.irHacia.navigate(['/ejercicios'])
+     /* this.obtenerUsuario()
+      setInterval(() => {
+        if(this.usuario.rol == "empleado"){
+          this.irHacia.navigate(['/perfilempleado'])
+        }
+        else{
+          this.irHacia.navigate(['/ejercicios'])
+        }    
+      }, 3000);*/
+    }
   }
 
   login(){
@@ -45,15 +42,16 @@ export class HomeComponent implements OnInit {
       respuesta => {
         console.log("Respuesta: "+respuesta.token)
         this.servicioUsuario.guardarToken(respuesta.token)
-        this.obtenerUsuario()
-        setInterval(() => {
+       // this.obtenerUsuario()
+       this.irHacia.navigate(['/ejercicios'])
+        /*setInterval(() => {
           if(this.usuario.rol == "empleado"){
             this.irHacia.navigate(['/perfilempleado'])
           }
           else{
             this.irHacia.navigate(['/ejercicios'])
           }    
-        }, 5000);
+        }, 5000);*/
       },
       error => {
         console.log(error)
@@ -71,6 +69,4 @@ export class HomeComponent implements OnInit {
       error => console.log(error)
     )
   }
-
-  
 }

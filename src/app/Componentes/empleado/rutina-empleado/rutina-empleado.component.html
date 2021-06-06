@@ -15,12 +15,15 @@
                 <tr *ngFor="let rutina of rutinas">
                     <td>{{rutina.nombre}}</td>
                     <td>{{rutina.fecha_creacion}} </td>
-                    <td>{{rutina.usuario}} </td>
+                    <td>{{rutina.usuario.nombre}} {{rutina.usuario.apellidos}} </td>
                     <td>
                     <button type="button" class="btn btn-primary" (click)="recogerRutina(rutina)" data-toggle="modal" data-target="#modalEditarRutina">Editar</button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary" (click)="borrarRutina(rutina.id)">Borrar</button>
+                    </td>  
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="recogerRutina(rutina)" data-toggle="modal" data-target="#modalEjerciciosRutina">Ejercicios</button>
                     </td>  
                 </tr>
             </tbody>
@@ -42,9 +45,14 @@
                       <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre...">
                     </div>
                     <div class="form-group">
-                        <select formControlName="usuario">
-                            <option id="optionsocio" *ngFor="let socio of socios" [value]="socio.id">{{socio.nombre}} {{socio.apellidos}}</option>
+                        <select formControlName="usuario" class="form-control">
+                            <option *ngFor="let socio of socios" [value]="socio.id" [selected]="socio.id!=0">{{socio.nombre}} {{socio.apellidos}}</option>
                         </select>      
+                    </div>
+                    <div class="form-group">
+                        <div *ngFor="let ejercicio of ejercicios">
+                            <input type="checkbox" id="cbox" class="form-control" formControlName="ejerciciosrutina"> <label for="cbox2"> {{ejercicio.nombre}} ({{ejercicio.tipo}}) </label><br>                          
+                        </div>   
                     </div>
                     <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Insertar</button></div>
                   </form>
@@ -67,11 +75,17 @@
         </button>
       </div>
       <div class="modal-body">
-          <form [formGroup]="formEditarRutina" (submit)="editarRutina()">
-              <div class="form-group">
-                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre..." [(ngModel)]="rutinatmp.nombre">
-              </div>
-              <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Editar</button></div>
+            <form [formGroup]="formEditarRutina" (submit)="editarRutina()">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre..." [(ngModel)]="rutinatmp.nombre">
+                </div>
+                <div class="form-group">
+                    <select formControlName="usuario" class="form-control" disabled>
+                        <option id="optionsocio" *ngFor="let socio of socios" [value]="socio.id" [selected]="socio.id == rutinatmp.usuario.id">{{socio.nombre}} {{socio.apellidos}}</option>
+                    </select>      
+                </div>
+
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Editar</button></div>
             </form>
       </div>
       <div class="modal-footer">
