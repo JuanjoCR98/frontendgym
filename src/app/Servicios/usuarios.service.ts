@@ -37,6 +37,26 @@ export class UsuariosService {
     return this.http.post(url+"/registrar",socio)
   }
 
+  editarSocio(id,socio:Usuario): Observable<any>{
+    return this.http.put(url+"/socio/"+id,socio)
+  }
+
+  borrarUser(id): Observable<any>{
+    return this.http.delete(url+"/user/"+id)
+  }
+
+  obtenerEmpleados(): Observable<any>{
+    return this.http.get(url+"/empleados")
+  }
+
+  insertarEmpleado(empleado:Usuario): Observable<any>{
+    return this.http.post(url+"/registrar",empleado)
+  }
+
+  editarEmpleado(id,empleado:Usuario): Observable<any>{
+    return this.http.put(url+"/empleado/"+id,empleado)
+  }
+
   isLogged(): boolean{
     return !!localStorage.getItem("tokenUsuario")
   }

@@ -1,5 +1,6 @@
 export class Rutina {
     id?: number
-    tipo?: string
+    nombre?: string
     fecha_creacion?: Date
+    usuario?: string
 }

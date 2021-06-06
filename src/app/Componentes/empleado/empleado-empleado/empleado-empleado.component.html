@@ -1,0 +1,131 @@
+<div class="empleado-empleado">
+    <app-headerusuario></app-headerusuario>
+    <section class="empleado">
+        <table class="table table-striped table-dark table-empleado">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Email </th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empleado of empleados">
+                    <td>{{empleado.nombre}}</td>
+                    <td>{{empleado.apellidos}} </td>
+                    <td>{{empleado.email}} </td>
+                    <td>
+                    <button type="button" class="btn btn-primary" (click)="recogerEmpleado(empleado)" data-toggle="modal" data-target="#modalEditarEmpleado">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="borrarEmpleado(empleado.id)">Borrar</button>
+                    </td>                         
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modalInsertarEmpleado" >NUEVO EMPLEADO</button>
+    </section>
+    <div class="modal fade" id="modalInsertarEmpleado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Insertar empleado</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formInsertarEmpleado" (submit)="insertarEmpleado(formInsertarEmpleado.value)">
+                    <div class="form-group">
+                      <input type="text" class="form-control" formControlName="email" placeholder="Email...">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" formControlName="password" placeholder="Contraseña...">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre...">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos...">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" formControlName="fecha_nacimiento">
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control" formControlName="foto" hidden>
+                    </div>
+                    <div class="form-group" hidden>
+                        <input type="text" class="form-control" formControlName="rol">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="facebook" placeholder="Facebook...">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="instagram" placeholder="Instagram...">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="twitter" placeholder="Twitter...">
+                    </div>
+                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Insertar</button></div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade"  id="modalEditarEmpleado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar empleado</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="formEditarEmpleado" (submit)="editarEmpleado()">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="email" placeholder="Email..." [(ngModel)]="empleadotmp.email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña..." [(ngModel)]="empleadotmp.password">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre..." [(ngModel)]="empleadotmp.nombre">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos..." [(ngModel)]="empleadotmp.apellidos">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" formControlName="fecha_nacimiento" [(ngModel)]="empleadotmp.fecha_nacimiento">
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" formControlName="foto" [(ngModel)]="empleadotmp.foto">
+                </div>
+                <div class="form-group" hidden>
+                    <input type="text" class="form-control" formControlName="rol">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="facebook" [(ngModel)]="empleadotmp.facebook">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="instagram" [(ngModel)]="empleadotmp.instagram">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="twitter" [(ngModel)]="empleadotmp.twitter">
+                </div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Editar</button></div>
+                </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+      </div>
+    </div>
+  </div>
+</div>

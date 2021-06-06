@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PerfilComponent } from './Componentes/auth/perfil/perfil.component';
 import { EjerciciosComponent } from './Componentes/ejercicios/ejercicios.component';
+import { EmpleadoEmpleadoComponent } from './Componentes/empleado/empleado-empleado/empleado-empleado.component';
 import { PerfilEmpleadoComponent } from './Componentes/empleado/perfil-empleado/perfil-empleado.component';
+import { RutinaEmpleadoComponent } from './Componentes/empleado/rutina-empleado/rutina-empleado.component';
 import { SocioEmpleadoComponent } from './Componentes/empleado/socio-empleado/socio-empleado.component';
 import { HomeComponent } from './Componentes/home/home.component';
 import { RutinasComponent } from './Componentes/rutinas/rutinas.component';
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: "rutinas", component:RutinasComponent},
   {path: "perfilempleado", component:PerfilEmpleadoComponent},
   {path: "socioempleado", component:SocioEmpleadoComponent},
+  {path: "empleadoempleado", component:EmpleadoEmpleadoComponent},
+  {path: "rutinaempleado", component:RutinaEmpleadoComponent},
   {path: "**", component:HomeComponent},
 ];
 

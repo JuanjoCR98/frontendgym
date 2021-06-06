@@ -28,6 +28,8 @@ import { MenuperfilempleadoComponent } from './Componentes/menuempleado/menuperf
 import { MenusocioempleadoComponent } from './Componentes/menuempleado/menusocioempleado/menusocioempleado.component';
 import { MenuempleadoempleadoComponent } from './Componentes/menuempleado/menuempleadoempleado/menuempleadoempleado.component';
 import { SocioEmpleadoComponent } from './Componentes/empleado/socio-empleado/socio-empleado.component';
+import { EmpleadoEmpleadoComponent } from './Componentes/empleado/empleado-empleado/empleado-empleado.component';
+import { RutinaEmpleadoComponent } from './Componentes/empleado/rutina-empleado/rutina-empleado.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { SocioEmpleadoComponent } from './Componentes/empleado/socio-empleado/so
     MenuperfilempleadoComponent,
     MenusocioempleadoComponent,
     MenuempleadoempleadoComponent,
-    SocioEmpleadoComponent
+    SocioEmpleadoComponent,
+    EmpleadoEmpleadoComponent,
+    RutinaEmpleadoComponent
   ],
   imports: [
     BrowserModule,

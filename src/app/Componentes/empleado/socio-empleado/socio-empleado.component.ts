@@ -13,6 +13,7 @@ export class SocioEmpleadoComponent implements OnInit {
   constructor(private fb: FormBuilder,private socioService:UsuariosService) { }
 
   socios: Usuario[] = []
+  sociotmp: Usuario = {}
 
   formInsertarSocio = this.fb.group({
     email: ["",[Validators.required,Validators.email]],
@@ -20,6 +21,15 @@ export class SocioEmpleadoComponent implements OnInit {
     nombre: ["",[Validators.required]],
     apellidos: ["",[Validators.required]],
     fecha_nacimiento: ["",[Validators.required]],
+    rol:["socio"]
+  })
+
+  formEditarSocio = this.fb.group({
+    email: ["",[Validators.email]],
+    password: [""],
+    nombre: [""],
+    apellidos: [""],
+    fecha_nacimiento: [""],
     rol:["socio"]
   })
 
@@ -32,6 +42,7 @@ export class SocioEmpleadoComponent implements OnInit {
     this.socioService.obtenerSocios().subscribe(
       respuesta => {
         this.socios = respuesta
+        console.log(this.socios)
       },
       error => console.log(error)
     )
@@ -41,7 +52,45 @@ export class SocioEmpleadoComponent implements OnInit {
   {
     this.socioService.insertarSocio(socio).subscribe(
       respuesta => {
-        this.formInsertarSocio.reset()
+        this.obtenerSocios()
+        this.vaciarFormulario()
+        console.log(respuesta)
+      },
+      error => console.log(error)
+    )
+  }
+
+  vaciarFormulario()
+  {
+      this.formInsertarSocio.controls["email"].setValue("")
+      this.formInsertarSocio.controls["password"].setValue("")
+      this.formInsertarSocio.controls["nombre"].setValue("")
+      this.formInsertarSocio.controls["apellidos"].setValue("")
+      this.formInsertarSocio.controls["fecha_nacimiento"].setValue("") 
+  }
+
+  recogerSocio(socio)
+  {
+    this.sociotmp = socio
+  }
+
+  editarSocio()
+  {
+    console.log(this.sociotmp)
+    this.socioService.editarSocio(this.sociotmp.id,this.sociotmp).subscribe(
+      respuesta => {
+        this.vaciarFormulario()
+        this.obtenerSocios()
+        console.log(respuesta)
+      },
+      error => console.log(error)
+    )
+  }
+
+  borrarSocio(id)
+  {
+    this.socioService.borrarUser(id).subscribe(
+      respuesta => {
         this.obtenerSocios()
         console.log(respuesta)
       },
