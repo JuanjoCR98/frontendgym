@@ -1,5 +1,4 @@
 .menu{
-    height: 400px;
     overflow: hidden;
 }
   
@@ -8,22 +7,14 @@
 }
 
 .ejercicios{
-    height: 100%;
+    height: 400px;
     padding: 0;
     overflow: hidden;
     position:relative;
-}
-  
-.rutinas{
-    height: 100%;
-    padding: 0;
-    overflow: hidden;
-    position:relative;
-    cursor: pointer;
 }
   
 .perfil{
-    height: 100%;
+    height: 400px;
     padding: 0;
     overflow: hidden;
     position:relative;
@@ -31,18 +22,13 @@
 }
   
 .ejercicios-image{
+    background: url('/assets/menusocio/ejercicios.jpg')no-repeat center;
+    background-size: cover;
     z-index: -1;
     position:relative;
-    height: 100%
+    height: 100%;
 }
 
-.ejercicios-image img{
-    
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
-  
 .contenedor-ejercicios-title{
     height: 100%;
     width:100%;
@@ -55,41 +41,7 @@
     background: rgba(133, 128, 128,0.5); 
     backdrop-filter: blur(15px);
     color: white;
-    width:100vh;
-    padding:20px;
-    text-align: center;
-    font-size: 2em;
-    letter-spacing: 5px;
-}
-  
-.rutinas-image{
-    background: url('/assets/perfil/rutinas1.jpg')no-repeat center;
-    background-size: cover;
-    z-index: -1;
-    position:relative;
-    height: 100vh;
-    transition: transform .5s ease;
-}
-  
-.rutinas:hover .rutinas-image{
-    transform: scale(1.2);
-    padding: 0;
-    cursor: pointer;
-}
-  
-.contenedor-rutinas-title{
-    height: 100%;
     width:100%;
-    align-items: center;
-    display: flex;
-    position: absolute;
-}
-  
-.rutinas-title{
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(15px);
-    color: white;
-    width:100vh;
     padding:20px;
     text-align: center;
     font-size: 2em;
@@ -97,14 +49,14 @@
 }
   
 .perfil-image{
-    background: url('/assets/perfil/perfil1.jpg')no-repeat center;
+    background: url('/assets/menusocio/perfil.jpg')no-repeat center;
     background-size: cover;
     z-index: -1;
-    position: relative;
-    height: 100vh;
+    position:relative;
+    height: 100%;
     transition: transform .5s ease;
 }
-  
+
 .perfil:hover .perfil-image{
     transform: scale(1.2);
     padding: 0;
@@ -123,7 +75,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(15px);
     color: white;
-    width:100vh;
+    width:100%;
     padding:20px;
     text-align: center;
     font-size: 2em;

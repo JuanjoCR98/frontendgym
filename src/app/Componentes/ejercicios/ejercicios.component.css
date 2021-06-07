@@ -3,15 +3,12 @@
 .menu-ejercicios{
     overflow: hidden;
 }
-.ejercicios{
-    background: rgb(44, 48, 52);
-    position:sticky;
-}
+
 .ejercicios .cabecera-ejercicio{
     width: 100%;
-    background: #000046;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, hsl(240, 100%, 14%),hsl(193, 78%, 49%));
-    background: linear-gradient(to right, hsl(240, 100%, 14%),hsl(193, 78%, 49%));
+    background: #290347;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #290347,hsl(288, 94%, 13%));
+    background: linear-gradient(to right, #290347,hsl(288, 94%, 13%));
     display:flex;
     align-items: center;
     padding: 10px 20px;
@@ -21,6 +18,7 @@
     font-size: 2em;
     font-weight: 300;
     color:white;
+    padding-left: 8px;
 }
 
 .container-ejercicio{

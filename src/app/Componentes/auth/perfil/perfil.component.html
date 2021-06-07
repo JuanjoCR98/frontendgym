@@ -1,33 +1,21 @@
-<app-headerusuario></app-headerusuario>
-<app-menuperfil></app-menuperfil>
-<div>
-    <canvas id="myChart" width="400" height="400"></canvas>
+<div class="contenedor-perfil">
+  <app-headerusuario></app-headerusuario>
+  <app-menuperfil></app-menuperfil>
+  <div class="section-datosperfil">
+    <div class="row">
+      <div class="col-12 perfilsocio">
+        <div class="card">
+          <div class="contenedor-titulo"><h1>{{usuario.nombre}}</h1></div>
+          <div class="contendor-datos">
+            <p><b>Nombre y apellidos:</b> {{usuario.nombre}} {{usuario.apellidos}}</p>
+            <p><b>Email:</b> {{usuario.email}}</p>
+            <p><b>Fecha de nacimiento:</b> {{usuario.fecha_nacimiento}}</p>
+          </div> 
+          <div class="contenedor-boton-editar"><button class="btn btn-block boton-editar">EDITAR</button></div> 
+      </div>
+      </div>
+      <div class="col-12 col-md-6 estadisticas"></div>
+      <div class="col-12 col-md-6 datos-estadisticas"></div>
+    </div>
+  </div>
 </div>
-<script>
-    const labels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-    ];
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
-      }]
-    };
-    const config = {
-      type: 'line',
-      data,
-      options: {}
-    }
-        var myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-</script>
