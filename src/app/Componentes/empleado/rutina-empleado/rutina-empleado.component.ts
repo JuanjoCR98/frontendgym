@@ -125,7 +125,7 @@ export class RutinaEmpleadoComponent implements OnInit {
   }
 
   onChange(id:number, isChecked: boolean) {
-    const ejercicioFormArray = <FormArray>this.formInsertarRutina.controls.ejerciciosrutina;
+    const ejercicioFormArray = <FormArray>this.formInsertarRutina.controls.ejerciciosrutina ;
   
     if(isChecked) {
       ejercicioFormArray.push(new FormControl(identifierModuleUrl));

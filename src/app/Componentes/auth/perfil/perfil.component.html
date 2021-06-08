@@ -4,7 +4,6 @@
   <div class="section-datosperfil">
     <div class="row">
       <div class="col-12 perfilsocio">
-        <div class="card">
           <div class="contenedor-titulo"><h1>{{usuario.nombre}}</h1></div>
           <div class="contendor-datos">
             <p><b>Nombre y apellidos:</b> {{usuario.nombre}} {{usuario.apellidos}}</p>
@@ -12,10 +11,101 @@
             <p><b>Fecha de nacimiento:</b> {{usuario.fecha_nacimiento}}</p>
           </div> 
           <div class="contenedor-boton-editar"><button class="btn btn-block boton-editar">EDITAR</button></div> 
+      </div>  
+    </div>
+    <div class="row ">
+      <div class="col-12 estadisticas">
+         <div class="contenedor-titulo"><h1>ESTADISTICAS</h1></div>
+         <div class="contenedor-nodatos" *ngIf="usuario.estadisticas.length==0;else datos">
+           <p>No tiene estadisticas</p>
+         </div>
+        <ng-template #datos>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Peso</th>
+                <th scope="col">Altura</th>
+                <th scope="col">Imc</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let estadistica of usuario.estadisticas">
+                <td>{{estadistica.peso}}</td>
+                <td>{{estadistica.altura}}</td>
+                <td>{{estadistica.imc}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-template> 
       </div>
+      <div class="col-12 datos-estadisticas">
+        <div class="row">
+          <div class="contenedor-titulo"><h1>Calculadora del índice de masa corporal (IMC)</h1></div>
+          <div class="col-12 col-lg-6 datos-imc">
+            <p class="texto1">El sobrepeso puede causar la elevación de la concentración de colesterol total y de la presión arterial, y aumentar el riesgo de sufrir la enfermedad arterial coronaria. La obesidad aumenta las probabilidades de que se presenten otros factores de riesgo cardiovascular, en especial, presión arterial alta, colesterol elevado y diabetes.</p>
+            <hr class="separador">
+            <p class="texto2">Una medida de la obesidad se determina mediante el índice de masa corporal (IMC), que se calcula dividiendo los kilogramos de peso por el cuadrado de la estatura en metros (IMC = peso [kg]/ estatura [m2]). Según el Instituto Nacional del Corazón, los Pulmones y la Sangre de los Estados Unidos (NHLBI), el sobrepeso se define como un IMC de más de 25. Se considera que una persona es obesa si su IMC es superior a 30. Usted puede determinar su IMC con la calculadora que se encuentra a continuación. Con la cifra del IMC puede averiguar su composición corporal en la tabla que aparece debajo de la calculadora.</p>
+            <form [formGroup]="formEstadistica" (submit)="insertarEstadistica()">
+              <div class="row">
+                <div class="form-group col-12 col-md-6">
+                  <input type="number" class="form-control" formControlName="peso" step="0.01" placeholder="Peso...">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                  <input type="number" class="form-control" formControlName="altura" step="0.01" placeholder="Altura...">
+                </div>
+                <input type="number" class="form-control" formControlName="usuario" [(ngModel)]="usuario.id">
+                <div class="form-group col-12"><button class="btn btn-block boton-calcular" type="submit">CALCULAR</button></div>
+              </div>        
+          </form>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="col-12">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">IMC</th>
+                    <th scope="col">Situación</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Menor 18,5</td>
+                    <td>Bajo peso</td>
+                  </tr>
+                  <tr>
+                    <td>18,5 - 24,9</td>
+                    <td>Peso normal</td>
+                  </tr>
+                  <tr>
+                    <td>25 - 26,9</td>
+                    <td>Sobre peso grado I</td>
+                  </tr>
+                  <tr>
+                    <td>27 - 29,9</td>
+                    <td>Sobre peso grado II</td>
+                  </tr>
+                  <tr>
+                    <td>30 - 34,9</td>
+                    <td>Obesidad tipo I</td>
+                  </tr>
+                  <tr>
+                    <td>35 - 39,9</td>
+                    <td>Obesidad tipo II</td>
+                  </tr>
+                  <tr>
+                    <td>40 - 49,9</td>
+                    <td>Obesidad tipo III (mórbida)</td>
+                  </tr>
+                  <tr>
+                    <td>Mayor 50</td>
+                    <td>Obesidad tipo IV (extrema)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-md-6 estadisticas"></div>
-      <div class="col-12 col-md-6 datos-estadisticas"></div>
     </div>
   </div>
 </div>
