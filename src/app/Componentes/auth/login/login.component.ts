@@ -22,39 +22,18 @@ export class LoginComponent implements OnInit {
   })
 
   ngOnInit(): void {
-
-    if(this.servicioUsuario.isLogged()){
-      this.irHacia.navigate(['/ejercicios'])
-     /* this.obtenerUsuario()
-      setInterval(() => {
-        if(this.usuario.rol == "empleado"){
-          this.irHacia.navigate(['/perfilempleado'])
-        }
-        else{
-          this.irHacia.navigate(['/ejercicios'])
-        }    
-      }, 3000);*/
-    }
+    
   }
 
   login(){
     this.servicioUsuario.login(this.formLogin.value).subscribe(
-      respuesta => {
+      async respuesta => {
         console.log("Respuesta: "+respuesta.token)
-        this.servicioUsuario.guardarToken(respuesta.token)
-       // this.obtenerUsuario()
-       this.irHacia.navigate(['/ejercicios'])
-        /*setInterval(() => {
-          if(this.usuario.rol == "empleado"){
-            this.irHacia.navigate(['/perfilempleado'])
-          }
-          else{
-            this.irHacia.navigate(['/ejercicios'])
-          }    
-        }, 5000);*/
+        this.servicioUsuario.guardarToken(respuesta.token) 
+        this.obtenerUsuario()
       },
       error => {
-        console.log(error)
+        console.log(error.error.error)
         this.mensaje = error.error.error
       }
     )
@@ -64,6 +43,12 @@ export class LoginComponent implements OnInit {
     this.servicioUsuario.obtenerUser().subscribe(
       respuesta => {
         this.usuario = respuesta
+        if(this.usuario.rol == "empleado"){
+          this.irHacia.navigate(['/empleadoempleado'])
+        }
+        else if(this.usuario.rol == "socio"){
+          this.irHacia.navigate(['/ejercicios'])
+        } 
         console.log(this.usuario)
       },
       error => console.log(error)

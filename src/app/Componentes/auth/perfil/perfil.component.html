@@ -10,7 +10,7 @@
             <p><b>Email:</b> {{usuario.email}}</p>
             <p><b>Fecha de nacimiento:</b> {{usuario.fecha_nacimiento}}</p>
           </div> 
-          <div class="contenedor-boton-editar"><button class="btn btn-block boton-editar">EDITAR</button></div> 
+          <div class="contenedor-boton-editar"><button class="btn btn-block boton-editar" (click)="recogerSocio(usuario)" data-toggle="modal" data-target="#modalEditarSocio">EDITAR</button></div> 
       </div>  
     </div>
     <div class="row ">
@@ -30,8 +30,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let estadistica of usuario.estadisticas">
-                <td>{{estadistica.peso}}</td>
-                <td>{{estadistica.altura}}</td>
+                <td>{{estadistica.peso}} kg</td>
+                <td>{{estadistica.altura}} m</td>
                 <td>{{estadistica.imc}}</td>
               </tr>
             </tbody>
@@ -45,6 +45,7 @@
             <p class="texto1">El sobrepeso puede causar la elevación de la concentración de colesterol total y de la presión arterial, y aumentar el riesgo de sufrir la enfermedad arterial coronaria. La obesidad aumenta las probabilidades de que se presenten otros factores de riesgo cardiovascular, en especial, presión arterial alta, colesterol elevado y diabetes.</p>
             <hr class="separador">
             <p class="texto2">Una medida de la obesidad se determina mediante el índice de masa corporal (IMC), que se calcula dividiendo los kilogramos de peso por el cuadrado de la estatura en metros (IMC = peso [kg]/ estatura [m2]). Según el Instituto Nacional del Corazón, los Pulmones y la Sangre de los Estados Unidos (NHLBI), el sobrepeso se define como un IMC de más de 25. Se considera que una persona es obesa si su IMC es superior a 30. Usted puede determinar su IMC con la calculadora que se encuentra a continuación. Con la cifra del IMC puede averiguar su composición corporal en la tabla que aparece debajo de la calculadora.</p>
+    
             <form [formGroup]="formEstadistica" (submit)="insertarEstadistica()">
               <div class="row">
                 <div class="form-group col-12 col-md-6">
@@ -53,8 +54,8 @@
                 <div class="form-group col-12 col-md-6">
                   <input type="number" class="form-control" formControlName="altura" step="0.01" placeholder="Altura...">
                 </div>
-                <input type="number" class="form-control" formControlName="usuario" [(ngModel)]="usuario.id">
-                <div class="form-group col-12"><button class="btn btn-block boton-calcular" type="submit">CALCULAR</button></div>
+                <input type="number" class="form-control" formControlName="usuario" [(ngModel)]="usuario.id" hidden>
+                <div class="form-group col-12"><button class="btn btn-block boton-editar" type="submit">CALCULAR</button></div>
               </div>        
           </form>
           </div>
@@ -105,6 +106,46 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade"  id="modalEditarSocio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar socio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="formEditarSocio" (submit)="editarSocio()">
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="email" placeholder="Email..." [(ngModel)]="sociotmp.email">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Contraseña..." [(ngModel)]="sociotmp.password">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre..." [(ngModel)]="sociotmp.nombre">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos..." [(ngModel)]="sociotmp.apellidos">
+              </div>
+              <div class="form-group">
+                  <input type="date" class="form-control" formControlName="fecha_nacimiento" [(ngModel)]="sociotmp.fecha_nacimiento">
+              </div>
+              <div class="form-group" hidden>
+                  <input type="text" class="form-control" formControlName="rol">
+              </div>
+              <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Editar</button></div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
       </div>
     </div>
   </div>

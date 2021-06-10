@@ -15,6 +15,12 @@ export class EmpleadoEmpleadoComponent implements OnInit {
   empleados: Usuario[] = []
   empleadotmp: Usuario = {}
   usuario: Usuario = {}
+  user: Usuario = {}
+  insertado: boolean = false
+  erroneo: boolean = false
+  editado: boolean = false
+  mensaje: any
+  mensajeerr: any =""
 
   formInsertarEmpleado = this.fb.group({
     email: ["",[Validators.required,Validators.email]],
@@ -43,7 +49,18 @@ export class EmpleadoEmpleadoComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    this.obtenerUsuario()
     this.obtenerEmpleados()
+  }
+
+  obtenerUsuario(): void {
+    this.servicioUsuario.obtenerUser().subscribe(
+      respuesta => {
+        this.user = respuesta
+        console.log(this.usuario)
+      },
+      error => console.log(error)
+    )
   }
 
   obtenerEmpleados(): void 
@@ -76,9 +93,24 @@ export class EmpleadoEmpleadoComponent implements OnInit {
       respuesta => {
         this.vaciarFormulario()
         this.obtenerEmpleados()
+        this.insertado = true
+        if(respuesta != ""){
+          console.log(respuesta["error"])
+          this.mensaje = respuesta.status
+          setTimeout(()=>{this.insertado = false},4000);
+        }else{
+          this.erroneo = true
+          console.log(this.erroneo)
+          setTimeout(()=>{this.erroneo = false},4000);
+        }
         console.log(respuesta)
       },
-      error => console.log(error)
+      error => {
+        this.mensajeerr = error.error.error
+        this.erroneo = true
+        console.log(this.erroneo)
+        setTimeout(()=>{this.erroneo = false},4000);
+      }
     )
   }
 
@@ -89,13 +121,20 @@ export class EmpleadoEmpleadoComponent implements OnInit {
 
   editarEmpleado()
   {
-    this.empleadoService.editarEmpleado(this.empleadotmp.id,this.empleadotmp).subscribe(
+    this.empleadoService.editarEmpleado(this.empleadotmp.id,this.formEditarEmpleado.value).subscribe(
       respuesta => {
         this.vaciarFormulario()
         this.obtenerEmpleados()
-        console.log(respuesta)
+        this.editado = true
+        this.mensaje = respuesta.status
+        setTimeout(()=>{this.editado = false},4000);
       },
-      error => console.log(error)
+      error => {
+        this.mensajeerr = error.error.error
+        this.erroneo = true
+        console.log(this.erroneo)
+        setTimeout(()=>{this.erroneo = false},4000);
+      }
     )
   }
 

@@ -1,9 +1,19 @@
 .empleado-empleado{
-    min-height:100vh; 
+    min-height:100%; 
     overflow: hidden;
 }
 
+.contenedor-btn-insertar{
+    width: 100%;
+    padding: 20px;
+}
+
 .empleado{
-    background: rgb(44, 48, 52);
     height: 100%;
+}
+
+.boton{
+    background: rgb(58, 10, 105);
+    color:white;
+    font-weight: 300;
 }

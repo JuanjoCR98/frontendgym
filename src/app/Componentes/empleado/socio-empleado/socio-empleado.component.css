@@ -1,5 +1,9 @@
-.socio-empleado{
-    min-height: 100vh;
-    background: rgb(44, 48, 52);
+.empleado-empleado{
+    min-height:100%; 
     overflow: hidden;
+}
+.boton{
+    background: rgb(58, 10, 105);
+    color:white;
+    font-weight: 300;
 }

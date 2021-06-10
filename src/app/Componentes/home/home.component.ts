@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void 
   {
+    if(this.servicioUsuario.isLogged()){
+        this.obtenerUsuario()
+    }
     var map = L.map('mapid').setView([39.391645827098316, -3.221972775300358], 16);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -40,32 +43,17 @@ export class HomeComponent implements OnInit {
         .openPopup();
   }
 
-  login(){
-    this.servicioUsuario.login(this.formLogin.value).subscribe(
-      respuesta => {
-        console.log("Respuesta: "+respuesta.token)
-        this.servicioUsuario.guardarToken(respuesta.token)
-        this.obtenerUsuario()
-        setInterval(() => {
-          if(this.usuario.rol == "empleado"){
-            this.irHacia.navigate(['/perfilempleado'])
-          }
-          else{
-            this.irHacia.navigate(['/ejercicios'])
-          }    
-        }, 5000);
-      },
-      error => {
-        console.log(error)
-        this.mensaje = error.error.error
-      }
-    )
-  }
 
-  obtenerUsuario(): void {
+obtenerUsuario(): void {
     this.servicioUsuario.obtenerUser().subscribe(
       respuesta => {
         this.usuario = respuesta
+        if(this.usuario.rol == "empleado"){
+          this.irHacia.navigate(['/empleadoempleado'])
+        }
+        else if(this.usuario.rol == "socio"){
+          this.irHacia.navigate(['/ejercicios'])
+        } 
         console.log(this.usuario)
       },
       error => console.log(error)

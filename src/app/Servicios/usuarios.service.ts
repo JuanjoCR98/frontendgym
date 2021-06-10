@@ -29,6 +29,11 @@ export class UsuariosService {
     return this.http.get(url)
   }
 
+  async obtenerUsuarioLogueado(){
+    let usuario = await this.http.get(url)
+    return usuario;
+  }
+
   obtenerSocios(): Observable<any>{
     return this.http.get(url+"/socios")
   }

@@ -76,14 +76,15 @@ export class SocioEmpleadoComponent implements OnInit {
 
   editarSocio()
   {
-    console.log(this.sociotmp)
-    this.socioService.editarSocio(this.sociotmp.id,this.sociotmp).subscribe(
+    this.socioService.editarSocio(this.sociotmp.id,this.formEditarSocio.value).subscribe(
       respuesta => {
         this.vaciarFormulario()
         this.obtenerSocios()
         console.log(respuesta)
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+      }
     )
   }
 

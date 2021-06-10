@@ -14,6 +14,10 @@ import { UsuariosService } from 'src/app/Servicios/usuarios.service';
 export class PerfilComponent implements OnInit {
   usuario: Usuario = {}
   abierto: boolean = false;
+  sociotmp: Usuario = {}
+  insertado:boolean = false
+  erroneo:boolean = false
+  mensaje: any
 
   constructor(private servicioUsuario:UsuariosService,private servicioEstadistica:EstadisticasService,private fb: FormBuilder) { }
 
@@ -23,7 +27,18 @@ export class PerfilComponent implements OnInit {
     usuario:[this.usuario.id]
   })
 
+  formEditarSocio = this.fb.group({
+    email: ["",[Validators.email]],
+    password: [""],
+    nombre: [""],
+    apellidos: [""],
+    fecha_nacimiento: [""],
+    rol:["socio"]
+  })
+
   ngOnInit(): void {
+      this.insertado = false
+      this.erroneo = false
       this.obtenerUsuario()
   }
 
@@ -41,17 +56,37 @@ export class PerfilComponent implements OnInit {
     this.servicioEstadistica.insertarEstadistica(this.formEstadistica.value).subscribe(
       respuesta => {
         this.obtenerUsuario()
+        this.insertado = true
+        this.mensaje = respuesta.status
+        setTimeout(()=>{this.insertado = false},4000);
         console.log(this.usuario)
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.erroneo = true
+        this.mensaje = error.error.error
+        setTimeout(()=>{this.erroneo = false},4000);
+      }
     )
   }
 
-  abrir(){
-    this.abierto = false;
+  recogerSocio(socio)
+  {
+    this.sociotmp = socio
   }
 
-  calcularEstadistica(){
-    this.abierto = false;
+  editarSocio()
+  {
+    this.servicioUsuario.editarSocio(this.sociotmp.id,this.formEditarSocio.value).subscribe(
+      respuesta => {
+        this.insertado = true;
+        this.obtenerUsuario()
+        console.log(respuesta)
+        console.log("entra")
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 }

@@ -1,7 +1,8 @@
 <div class="socio-empleado">
     <app-headerusuario></app-headerusuario>
+    <app-menusocioempleado></app-menusocioempleado>
     <section class="socios">
-        <table class="table table-striped table-dark tabla-socio">
+        <table class="table table-striped tabla-socio">
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
@@ -17,17 +18,17 @@
                     <td>{{usersocio.apellidos}} </td>
                     <td>{{usersocio.email}} </td>
                     <td>
-                    <button type="button" class="btn btn-primary" (click)="recogerSocio(usersocio)" data-toggle="modal" data-target="#modalEditarSocio">Editar</button>
+                    <button type="button" class="btn boton" (click)="recogerSocio(usersocio)" data-toggle="modal" data-target="#modalEditarSocio">Editar</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primary" (click)="borrarSocio(usersocio.id)">Borrar</button>
+                        <button type="button" class="btn boton" (click)="borrarSocio(usersocio.id)">Borrar</button>
                     </td>
                     
                       
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modalInsertarSocio" >NUEVO SOCIO</button>
+        <button type="button" class="btn boton btn-block" data-toggle="modal" data-target="#modalInsertarSocio" >NUEVO SOCIO</button>
     </section>
     <div class="modal fade" id="modalInsertarSocio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -58,7 +59,7 @@
                     <div class="form-group" hidden>
                         <input type="text" class="form-control" formControlName="rol">
                     </div>
-                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Insertar</button></div>
+                    <div class="form-group"><button class="btn boton btn-block" type="submit">Insertar</button></div>
                   </form>
             </div>
             <div class="modal-footer">
@@ -79,27 +80,27 @@
         </button>
       </div>
       <div class="modal-body">
-          <form [formGroup]="formEditarSocio" (submit)="editarSocio()">
-              <div class="form-group">
-                <input type="text" class="form-control" formControlName="email" placeholder="Email..." [(ngModel)]="sociotmp.email">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" formControlName="password" placeholder="Contraseña..." [(ngModel)]="sociotmp.password">
-              </div>
-              <div class="form-group">
-                  <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre..." [(ngModel)]="sociotmp.nombre">
-              </div>
-              <div class="form-group">
-                  <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos..." [(ngModel)]="sociotmp.apellidos">
-              </div>
-              <div class="form-group">
-                  <input type="date" class="form-control" formControlName="fecha_nacimiento" [(ngModel)]="sociotmp.fecha_nacimiento">
-              </div>
-              <div class="form-group" hidden>
-                  <input type="text" class="form-control" formControlName="rol">
-              </div>
-              <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Editar</button></div>
-            </form>
+        <form [formGroup]="formEditarSocio" (submit)="editarSocio()">
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="email" placeholder="Email..." [(ngModel)]="sociotmp.email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" formControlName="password" placeholder="Contraseña..." [(ngModel)]="sociotmp.password">
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre..." [(ngModel)]="sociotmp.nombre">
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos..." [(ngModel)]="sociotmp.apellidos">
+          </div>
+          <div class="form-group">
+              <input type="date" class="form-control" formControlName="fecha_nacimiento" [(ngModel)]="sociotmp.fecha_nacimiento">
+          </div>
+          <div class="form-group" hidden>
+              <input type="text" class="form-control" formControlName="rol">
+          </div>
+          <div class="form-group"><button class="btn boton btn-block" type="submit">Editar</button></div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
