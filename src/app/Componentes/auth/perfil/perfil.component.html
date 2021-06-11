@@ -45,7 +45,12 @@
             <p class="texto1">El sobrepeso puede causar la elevación de la concentración de colesterol total y de la presión arterial, y aumentar el riesgo de sufrir la enfermedad arterial coronaria. La obesidad aumenta las probabilidades de que se presenten otros factores de riesgo cardiovascular, en especial, presión arterial alta, colesterol elevado y diabetes.</p>
             <hr class="separador">
             <p class="texto2">Una medida de la obesidad se determina mediante el índice de masa corporal (IMC), que se calcula dividiendo los kilogramos de peso por el cuadrado de la estatura en metros (IMC = peso [kg]/ estatura [m2]). Según el Instituto Nacional del Corazón, los Pulmones y la Sangre de los Estados Unidos (NHLBI), el sobrepeso se define como un IMC de más de 25. Se considera que una persona es obesa si su IMC es superior a 30. Usted puede determinar su IMC con la calculadora que se encuentra a continuación. Con la cifra del IMC puede averiguar su composición corporal en la tabla que aparece debajo de la calculadora.</p>
-    
+            <div [hidden]="insertado!=true" class="alert alert-success" role="alert">
+              <p>{{mensaje}}</p>
+            </div>
+            <div [hidden]="erroneo!=true" class="alert alert-danger" role="alert">
+              <p>{{mensaje}}</p>
+            </div>
             <form [formGroup]="formEstadistica" (submit)="insertarEstadistica()">
               <div class="row">
                 <div class="form-group col-12 col-md-6">
@@ -122,6 +127,12 @@
         </button>
       </div>
       <div class="modal-body">
+           <div [hidden]="editado!=true" class="alert alert-success" role="alert">
+              <p>{{mensaje}}</p>
+            </div>
+            <div [hidden]="erroneo!=true" class="alert alert-danger" role="alert">
+              <p>{{mensaje}}</p>
+            </div>
           <form [formGroup]="formEditarSocio" (submit)="editarSocio()">
               <div class="form-group">
                 <input type="text" class="form-control" formControlName="email" placeholder="Email..." [(ngModel)]="sociotmp.email">
@@ -141,7 +152,7 @@
               <div class="form-group" hidden>
                   <input type="text" class="form-control" formControlName="rol">
               </div>
-              <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Editar</button></div>
+              <div class="form-group"><button class="btn boton-editar btn-block" type="submit">Editar</button></div>
             </form>
       </div>
       <div class="modal-footer">

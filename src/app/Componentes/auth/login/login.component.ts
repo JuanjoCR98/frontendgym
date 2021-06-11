@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   mensaje: any
   usuario: Usuario = {}
+  erroneo: boolean = false
 
   formLogin = this.fb.group({
     email: ["",[Validators.required,Validators.email]],
@@ -28,13 +29,13 @@ export class LoginComponent implements OnInit {
   login(){
     this.servicioUsuario.login(this.formLogin.value).subscribe(
       async respuesta => {
-        console.log("Respuesta: "+respuesta.token)
         this.servicioUsuario.guardarToken(respuesta.token) 
         this.obtenerUsuario()
       },
       error => {
-        console.log(error.error.error)
+        this.erroneo = true
         this.mensaje = error.error.error
+        setTimeout(()=>{this.erroneo = false},6000);
       }
     )
   }

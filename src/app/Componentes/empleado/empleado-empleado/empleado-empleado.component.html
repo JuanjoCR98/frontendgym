@@ -41,7 +41,7 @@
             </div>
             <div class="modal-body">
               <div [hidden]="erroneo!=true" class="alert alert-danger" role="alert">
-                <p>{{mensajeerr}}</p>
+                <p>{{mensaje}}</p>
               </div>
               <div [hidden]="insertado!=true" class="alert alert-success" role="alert">
                 <p>{{mensaje}}</p>
@@ -62,9 +62,6 @@
                 <div class="form-group">
                     <input type="date" class="form-control" formControlName="fecha_nacimiento">
                 </div>
-                <div class="form-group">
-                    <input type="file" class="form-control" formControlName="foto">
-                </div>
                 <div class="form-group" hidden>
                     <input type="text" class="form-control" formControlName="rol">
                 </div>
@@ -79,6 +76,7 @@
                 </div>
                 <div class="form-group"><button class="btn boton btn-block" type="submit">Insertar</button></div>
               </form>
+              <hr>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
@@ -99,7 +97,7 @@
       </div>
       <div class="modal-body">
         <div [hidden]="erroneo!=true" class="alert alert-danger" role="alert">
-          <p>{{mensajeerr}}</p>
+          <p>{{mensaje}}</p>
         </div>
         <div [hidden]="editado!=true" class="alert alert-success" role="alert">
           <p>{{mensaje}}</p>
@@ -120,9 +118,6 @@
                 <div class="form-group">
                     <input type="date" class="form-control" formControlName="fecha_nacimiento" [(ngModel)]="empleadotmp.fecha_nacimiento">
                 </div>
-                <div class="form-group">
-                    <input type="file" class="form-control" formControlName="foto" [(ngModel)]="empleadotmp.foto">
-                </div>
                 <div class="form-group" hidden>
                     <input type="text" class="form-control" formControlName="rol">
                 </div>
@@ -136,7 +131,12 @@
                     <input type="text" class="form-control" formControlName="twitter" [(ngModel)]="empleadotmp.twitter" placeholder="Twitter">
                 </div>
                 <div class="form-group"><button class="btn boton btn-block" type="submit">Editar</button></div>
-                </form>
+              </form>
+              <hr>
+              <form [formGroup]="formImagen" (ngSubmit)="subirImagen()">
+                <input type="file" formControlName="foto" (change)="cambiaImagen($event)" accept="image/png,image/jpeg"><br><br>
+                <button type="submit" class="btn boton btn-block">Subir imagen de perfil</button>
+              </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>

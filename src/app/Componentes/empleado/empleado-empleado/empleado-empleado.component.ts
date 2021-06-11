@@ -20,7 +20,6 @@ export class EmpleadoEmpleadoComponent implements OnInit {
   erroneo: boolean = false
   editado: boolean = false
   mensaje: any
-  mensajeerr: any =""
 
   formInsertarEmpleado = this.fb.group({
     email: ["",[Validators.required,Validators.email]],
@@ -28,7 +27,6 @@ export class EmpleadoEmpleadoComponent implements OnInit {
     nombre: ["",[Validators.required]],
     apellidos: ["",[Validators.required]],
     fecha_nacimiento: ["",[Validators.required]],
-    foto: ["",[Validators.required]],
     rol:["empleado"],
     facebook: [""],
     instagram: [""],
@@ -46,6 +44,10 @@ export class EmpleadoEmpleadoComponent implements OnInit {
     facebook: [""],
     instagram: [""],
     twitter: [""],
+  })
+
+  formImagen = this.fb.group({
+    foto: ["", Validators.required]
   })
 
   ngOnInit(): void {
@@ -81,7 +83,6 @@ export class EmpleadoEmpleadoComponent implements OnInit {
       this.formInsertarEmpleado.controls["nombre"].setValue("")
       this.formInsertarEmpleado.controls["apellidos"].setValue("")
       this.formInsertarEmpleado.controls["fecha_nacimiento"].setValue("") 
-      this.formInsertarEmpleado.controls["foto"].setValue("") 
       this.formInsertarEmpleado.controls["facebook"].setValue("") 
       this.formInsertarEmpleado.controls["instagram"].setValue("") 
       this.formInsertarEmpleado.controls["twitter"].setValue("") 
@@ -94,21 +95,14 @@ export class EmpleadoEmpleadoComponent implements OnInit {
         this.vaciarFormulario()
         this.obtenerEmpleados()
         this.insertado = true
-        if(respuesta != ""){
-          console.log(respuesta["error"])
-          this.mensaje = respuesta.status
-          setTimeout(()=>{this.insertado = false},4000);
-        }else{
-          this.erroneo = true
-          console.log(this.erroneo)
-          setTimeout(()=>{this.erroneo = false},4000);
-        }
+        this.mensaje = respuesta.status
+        setTimeout(()=>{this.insertado = false},4000);
         console.log(respuesta)
       },
       error => {
-        this.mensajeerr = error.error.error
+        this.mensaje = error.error.error
         this.erroneo = true
-        console.log(this.erroneo)
+        console.log(error)
         setTimeout(()=>{this.erroneo = false},4000);
       }
     )
@@ -130,10 +124,10 @@ export class EmpleadoEmpleadoComponent implements OnInit {
         setTimeout(()=>{this.editado = false},4000);
       },
       error => {
-        this.mensajeerr = error.error.error
+        this.mensaje = error.error.error
         this.erroneo = true
-        console.log(this.erroneo)
-        setTimeout(()=>{this.erroneo = false},4000);
+        console.log(error)
+        setTimeout(()=>{this.erroneo = false},6000);
       }
     )
   }
@@ -147,5 +141,24 @@ export class EmpleadoEmpleadoComponent implements OnInit {
       },
       error => console.log(error)
     )
+  }
+
+  subirImagen(): void {
+    const formData = new FormData()
+    formData.append("foto", this.formImagen.get("foto").value)
+    this.servicioUsuario.subirImagen(this.empleadotmp.id,formData).subscribe(
+      respuesta => {
+        console.log(respuesta)
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  }
+
+  cambiaImagen(evento): void {
+    if (evento.target.files) {
+      this.formImagen.get("foto").setValue(evento.target.files[0])
+    }
   }
 }

@@ -62,6 +62,10 @@ export class UsuariosService {
     return this.http.put(url+"/empleado/"+id,empleado)
   }
 
+  subirImagen(id,entrada): Observable<any>{
+    return this.http.post(url+'/image/'+id,entrada)
+  }
+
   isLogged(): boolean{
     return !!localStorage.getItem("tokenUsuario")
   }

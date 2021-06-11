@@ -9,6 +9,9 @@
             <div class="formulario-login">
                 <div class="row">
                     <div class="col-12">
+                        <div [hidden]="erroneo!=true" class="alert alert-danger" role="alert">
+                            <p>{{mensaje}}</p>
+                          </div>
                         <form [formGroup]="formLogin" (submit)="login()">
                             <div class="form-group">
                               <input type="text" class="form-control" formControlName="email" placeholder="Email...">

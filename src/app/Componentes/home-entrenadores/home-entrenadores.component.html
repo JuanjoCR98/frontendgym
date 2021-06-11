@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-4 contenedor-entrenador" *ngFor="let trainer of entrenadores">
                         <div class="img-box">
-                            <img *ngIf= "trainer.foto != '';else noimg" src="/examples/images/clients/1.jpg">
+                            <img *ngIf= "trainer.foto != '';else noimg" src={{trainer.foto}}>
                             <ng-template #noimg>
                                 <img src="/assets/noimg.jpg">
                             </ng-template>

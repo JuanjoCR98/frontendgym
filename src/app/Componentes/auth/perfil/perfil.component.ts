@@ -17,6 +17,7 @@ export class PerfilComponent implements OnInit {
   sociotmp: Usuario = {}
   insertado:boolean = false
   erroneo:boolean = false
+  editado:boolean = false
   mensaje: any
 
   constructor(private servicioUsuario:UsuariosService,private servicioEstadistica:EstadisticasService,private fb: FormBuilder) { }
@@ -57,15 +58,14 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         this.obtenerUsuario()
         this.insertado = true
-        this.mensaje = respuesta.status
-        setTimeout(()=>{this.insertado = false},4000);
-        console.log(this.usuario)
+          this.mensaje = respuesta.status
+          setTimeout(()=>{this.insertado = false},6000);    
       },
       error => {
         console.log(error)
         this.erroneo = true
         this.mensaje = error.error.error
-        setTimeout(()=>{this.erroneo = false},4000);
+        setTimeout(()=>{this.erroneo = false},6000);
       }
     )
   }
@@ -79,13 +79,15 @@ export class PerfilComponent implements OnInit {
   {
     this.servicioUsuario.editarSocio(this.sociotmp.id,this.formEditarSocio.value).subscribe(
       respuesta => {
-        this.insertado = true;
         this.obtenerUsuario()
-        console.log(respuesta)
-        console.log("entra")
+        this.editado = true
+        this.mensaje = respuesta.status
+         setTimeout(()=>{this.editado = false},6000);    
       },
       error => {
-        console.log(error)
+        this.erroneo = true
+        this.mensaje = error.error.error
+        setTimeout(()=>{this.erroneo = false},6000);
       }
     )
   }

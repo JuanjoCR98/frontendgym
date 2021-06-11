@@ -40,6 +40,12 @@
               </button>
             </div>
             <div class="modal-body">
+              <div [hidden]="erroneo!=true" class="alert alert-danger" role="alert">
+                <p>{{mensaje}}</p>
+              </div>
+              <div [hidden]="insertado!=true" class="alert alert-success" role="alert">
+                <p>{{mensaje}}</p>
+              </div>
                 <form [formGroup]="formInsertarSocio" (submit)="insertarSocio(formInsertarSocio.value)">
                     <div class="form-group">
                       <input type="text" class="form-control" formControlName="email" placeholder="Email...">
@@ -80,6 +86,12 @@
         </button>
       </div>
       <div class="modal-body">
+        <div [hidden]="erroneo!=true" class="alert alert-danger" role="alert">
+          <p>{{mensaje}}</p>
+        </div>
+        <div [hidden]="editado!=true" class="alert alert-success" role="alert">
+          <p>{{mensaje}}</p>
+        </div>
         <form [formGroup]="formEditarSocio" (submit)="editarSocio()">
           <div class="form-group">
             <input type="text" class="form-control" formControlName="email" placeholder="Email..." [(ngModel)]="sociotmp.email">

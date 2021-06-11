@@ -14,6 +14,10 @@ export class SocioEmpleadoComponent implements OnInit {
 
   socios: Usuario[] = []
   sociotmp: Usuario = {}
+  insertado: boolean = false
+  erroneo: boolean = false
+  editado: boolean = false
+  mensaje: any
 
   formInsertarSocio = this.fb.group({
     email: ["",[Validators.required,Validators.email]],
@@ -54,9 +58,16 @@ export class SocioEmpleadoComponent implements OnInit {
       respuesta => {
         this.obtenerSocios()
         this.vaciarFormulario()
-        console.log(respuesta)
+        this.insertado = true
+        this.mensaje = respuesta.status
+        setTimeout(()=>{this.insertado = false},4000);
       },
-      error => console.log(error)
+      error => {
+        this.mensaje = error.error.error
+        this.erroneo = true
+        console.log(error)
+        setTimeout(()=>{this.erroneo = false},6000);
+      }
     )
   }
 
@@ -80,10 +91,16 @@ export class SocioEmpleadoComponent implements OnInit {
       respuesta => {
         this.vaciarFormulario()
         this.obtenerSocios()
+        this.editado = true
+        this.mensaje = respuesta.status
+        setTimeout(()=>{this.editado = false},4000);
         console.log(respuesta)
       },
       error => {
+        this.mensaje = error.error.error
+        this.erroneo = true
         console.log(error)
+        setTimeout(()=>{this.erroneo = false},6000);
       }
     )
   }
